@@ -1,0 +1,14 @@
+<osm-script output="csv" output-config="(::type,::id,::lat,::lon,::version,::timestamp,::changeset,::uid,::user,street_cabinet,operator,ref,width,length,height,direction,colour,manufacturer,model)">
+  <id-query type="area" ref="3600007437" into="isere"/>
+  <union into="_">
+    <query into="_" type="node">
+      <has-kv k="man_made" modv="" v="street_cabinet"/>
+      <area-query from="isere"/>
+    </query>
+    <query into="_" type="way">
+      <has-kv k="man_made" modv="" v="street_cabinet"/>
+      <area-query from="isere"/>
+    </query>
+  </union>
+  <print e="" from="_" geometry="center" ids="yes" limit="" mode="meta" n="" order="id" s="" w=""/>
+</osm-script>
